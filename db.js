@@ -1,5 +1,4 @@
 const { Sequelize } = require('sequelize');
-require('dotenv').config(); // Charge les variables d'environnement depuis le fichier .env
 
 // Database
 const sequelize = new Sequelize(
