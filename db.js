@@ -1,8 +1,9 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require('sequelize');
+require('dotenv').config(); // Charge les variables d'environnement depuis le fichier .env
 
 // Database
 const sequelize = new Sequelize(
-  'postgres://dbexercice1plateformescloud_user:x9lqmSRB9FIfiqovcJyWPsonJbhZ8I6G@dpg-clfhklg3nsgc738usogg-a/dbexercice1plateformescloud', // TODO: database connection string
+  process.env.DATABASE_URL, // Utilise la variable d'environnement DATABASE_URL
   {
     dialect: 'postgres',
     dialectOptions: {
@@ -16,9 +17,9 @@ const sequelize = new Sequelize(
       updatedAt: 'updated',
     }
   },
-)
+);
 
-sequelize.authenticate()
-sequelize.sync()
+sequelize.authenticate();
+sequelize.sync();
 
-module.exports = sequelize
+module.exports = sequelize;
